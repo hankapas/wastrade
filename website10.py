@@ -136,6 +136,28 @@ div[data-testid="stExpander"] {{
     padding: 8px !important;
 }}
 
+/* Style for multiselect containers */
+div[data-baseweb="select"] {{
+    background: {PRIMARY_COLOR}15 !important; /* Light tint of primary color */
+    border: none !important;
+    border-radius: 12px !important;
+    padding: 8px !important;
+    box-shadow: none !important;
+}}
+
+/* Style for multiselect tags (selected options) */
+span[data-baseweb="tag"] {{
+    background-color: {ACCENT_COLOR} !important; /* Accent color for tags */
+    color: white !important; /* White text for tags */
+    border-radius: 8px !important;
+    padding: 4px 8px !important;
+}}
+
+/* Adjust font size and alignment for multiselect dropdown */
+div[data-baseweb="select"] > div {{
+    font-family: 'Space Grotesk', sans-serif !important;
+    font-size: 14px !important;
+}}
 </style>
 """, unsafe_allow_html=True)
 
@@ -144,8 +166,7 @@ div[data-testid="stExpander"] {{
 from streamlit_option_menu import option_menu
 
 # Horizontal Navigation Bar
-horizontal_menu = option_menu( #CODE FROM Räthlein, B. (n.d.). Streamlit option menu [Python code file]. Retrieved December 12, 2024,
-                               #from https://github.com/victoryhb/streamlit-option-menu/blob/master/streamlit_option_menu/__init__.py
+horizontal_menu = option_menu(
     menu_title=None,
     options=["Introduction", "Maps", "The Project's Purpose", "About Me", "More Resources"],
     icons=["house", "map", "info-circle", "person-circle", "book"],
@@ -154,27 +175,20 @@ horizontal_menu = option_menu( #CODE FROM Räthlein, B. (n.d.). Streamlit option
     styles={
         "container": {
             "padding": "0!important",
-            "background": f"linear-gradient(90deg, {PRIMARY_COLOR} 0%, {ACCENT_COLOR} 100%)",
-            "border-radius": "8px",
-            "margin": "0 auto",
-            "max-width": "1200px"
+            "background-color": "#e8f5e9"  # Light green background
         },
-        "icon": {"color": SECONDARY_ACCENT, "font-size": "22px"},
+        "icon": {"color": "#5f8b55", "font-size": "20px"},
         "nav-link": {
-            "font-family": "'Space Grotesk', sans-serif",
             "font-size": "18px",
-            "text-align": "center",
-            "margin": "0px 12px",
-            "padding": "12px 20px!important",
-            "--hover-color": f"{ACCENT_COLOR}55",
-            "border-radius": "8px"
+            "--hover-color": "#c8e6c9"  # Hover color for links
         },
         "nav-link-selected": {
-            "background-color": f"{SECONDARY_ACCENT}!important",
-            "font-weight": 700
+            "background-color": f"{ACCENT_COLOR}",  # Use your defined accent color
+            "color": "#FFFFFF"  # Text color for selected item
         }
     }
 )
+
 
 # Conditional Rendering Based on Selection
 if horizontal_menu == "Introduction":
@@ -953,7 +967,7 @@ elif horizontal_menu == "Maps":
             
             st.write("The biggest issue with this new regulation is that waste exports are still allowed under certain conditions. While the documentation requirements are stricter, given the history of weak enforcement, it is fair to ask: Does this just leave the door open for waste to keep flowing under a different label?")
             
-            st.write("And there is another catch: non-OECD countries can request permission to import EU plastic waste five years after this regulation takes effect. If they meet the EU’s “strict waste management standards,” the European Commission can approve an exemption and lift the ban [8].")
+            st.write("And there is another catch: non-OECD countries can request permission to import EU plastic waste five years after this regulation takes effect. If they meet the EU’s “strict waste management standards,” the European Commission can approve an exemption and lift the ban [7].")
             
             st.write("On one hand, this could allow for better-managed waste partnerships, where waste flows align with supply and demand. But on the other, it also leaves a lot of room for corruption and regulatory failure—which, let us be real, has been the main problem all along.")
             
@@ -961,19 +975,19 @@ elif horizontal_menu == "Maps":
             
             st.write("With Regulation (EU) 2024/1157, that changes.")
             
-            st.write("OLAF now has the power to independently investigate waste shipments not just entering, exiting, or transiting through the EU, but also those occurring entirely within EU member states. These provisions will take effect from May 21, 2026, shifting OLAF from a supporting role to an active enforcement body. [9]")
+            st.write("OLAF now has the power to independently investigate waste shipments not just entering, exiting, or transiting through the EU, but also those occurring entirely within EU member states. These provisions will take effect from May 21, 2026, shifting OLAF from a supporting role to an active enforcement body. [8]")
             
-            st.write("This is a big deal because current numbers are worrying. Beyond what is officially reported through Eurostat (which this website’s data is based on), there is also a massive illegal waste trade. According to the EU’s own estimates, between 15% and 30% of waste shipments might be illegal. Obviously, these shipments do not follow regulations, making them far more likely to end up in landfills or open dumps [10].")
+            st.write("This is a big deal because current numbers are worrying. Beyond what is officially reported through Eurostat (which this website’s data is based on), there is also a massive illegal waste trade. According to the EU’s own estimates, between 15% and 30% of waste shipments might be illegal. Obviously, these shipments do not follow regulations, making them far more likely to end up in landfills or open dumps [9].")
             
-            st.write("The problem of high-income countries exporting waste to lower-income ones—where it is often dumped improperly—has been a known issue for decades. That is why the Basel Convention came into force in 1992, banning all hazardous waste exports from OECD to non-OECD countries as of 2019 [11]. The goal was to stop wealthier nations from offloading toxic waste onto lower-income countries, where it creates disproportionate environmental and public health consequences.")
+            st.write("The problem of high-income countries exporting waste to lower-income ones—where it is often dumped improperly—has been a known issue for decades. That is why the Basel Convention came into force in 1992, banning all hazardous waste exports from OECD to non-OECD countries as of 2019 [10]. The goal was to stop wealthier nations from offloading toxic waste onto lower-income countries, where it creates disproportionate environmental and public health consequences.")
             
-            st.write("Similarly, the Rotterdam Convention (since 2004) has required countries exporting hazardous waste to obtain prior informed consent from importing countries [12]. But both conventions acknowledge that mislabeling, mishandling, and illegal waste trade remain major loopholes. And since these agreements are mostly declarative—meaning violations only result in diplomatic pressure—they lack real enforcement mechanisms.")
+            st.write("Similarly, the Rotterdam Convention (since 2004) has required countries exporting hazardous waste to obtain prior informed consent from importing countries [11]. But both conventions acknowledge that mislabeling, mishandling, and illegal waste trade remain major loopholes. And since these agreements are mostly declarative—meaning violations only result in diplomatic pressure—they lack real enforcement mechanisms.")
             
-            st.write("Now, we also have Greenpeace’s 2022 study showing irreversible environmental damage from hazardous plastic waste in Adana, Turkey, where EU waste is also sent [13]. Maybe some of that waste arrived before the 2006 EU restrictions or the 2019 Basel Convention ban. But the study itself pointed out that most of the contamination was likely due to misclassified plastic waste—so whether or not it was exported legally is beside the point.")
+            st.write("Now, we also have Greenpeace’s 2022 study showing irreversible environmental damage from hazardous plastic waste in Adana, Turkey, where EU waste is also sent [12]. Maybe some of that waste arrived before the 2006 EU restrictions or the 2019 Basel Convention ban. But the study itself pointed out that most of the contamination was likely due to misclassified plastic waste—so whether or not it was exported legally is beside the point.")
             
             st.write("It is also important to note that Turkey is an OECD country. That means the Basel Convention primarily applies to it as an exporter rather than an importer. This does not mean there are no regulations for hazardous waste imports—it just means they are not completely banned for OECD countries.")
             
-            st.write("In May 2021, Turkey briefly banned the import of ethylene polymer waste (a type of plastic waste). However, within days, this ban was reversed and replaced with stricter monitoring and regulations instead [14]. Otherwise, Turkey has largely aligned its waste export regulations with the Basel Convention and has been tightening its import regulations to match EU standards.")
+            st.write("In May 2021, Turkey briefly banned the import of ethylene polymer waste (a type of plastic waste). However, within days, this ban was reversed and replaced with stricter monitoring and regulations instead [13]. Otherwise, Turkey has largely aligned its waste export regulations with the Basel Convention and has been tightening its import regulations to match EU standards.")
             
             st.write("So, looking at all these regulations, the issue is not the lack of rules—it is the lack of enforcement. Maybe if all waste trade was banned, hazardous waste exports would stop altogether, and illegal trade would be easier to detect and prevent.")
             
@@ -1077,21 +1091,18 @@ elif horizontal_menu == "Maps":
             max_value=int(haz_data['TIME_PERIOD'].max()),
             value=int(haz_data['TIME_PERIOD'].max()),  # Default to max year
         )
-
-        # Sidebar checklist to filter hazard material
-        rawmat_options = ["Hazardous and non-hazardous - total", "Hazardous", "Other"]
+        # For Hazardous Waste Material Type
         selected_rawmat = st.sidebar.multiselect(
-        "Select Material Type",
-        options=rawmat_options,
-        default="Hazardous"  # Default to show hazardous as main focus
+            "Select Material Type",
+            options=["Hazardous and non-hazardous - total",
+                     "Hazardous", "Other"],
+            default="Hazardous"
         )
-        
-        # Sidebar checklist to filter treatment material
-        treat_options = ["Recovery", "Disposal", "Waste treatment not allocated"]
+        # For Hazardous Waste Treatment Reasons
         selected_treat = st.sidebar.multiselect(
-        "Select Reason For Export",
-        options=treat_options,
-        default=treat_options  # Default to show all
+            "Select Reason For Export",
+            options=["Recovery", "Disposal", "Waste treatment not allocated"],
+            default=["Recovery", "Disposal", "Waste treatment not allocated"]
         )
         
         # Filter data for the selected year and raw material
@@ -1288,7 +1299,7 @@ elif horizontal_menu == "Maps":
             st.image(
                 "basin.png",
                 caption="A picture demonstrating soil degradation, modeled after a forest degradation example from Ghazoul et al. (2015)[11]",
-                use_column_width=True
+                use_container_width=True
             )
 
             st.write(
