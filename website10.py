@@ -5,46 +5,140 @@ import geopandas as gpd
 import pydeck as pdk
 import pycountry
 import statsmodels.formula.api as smf
+import time
 
 # Set page configuration
 st.set_page_config(page_title="Wastrade", layout="wide")
 
-# Define colors from the TTD logo
-BEIGE_COLOR = "#fff3e1"  # Beige for header and background
-GREEN_LINE_COLOR = "#a8d5a0"  # Light green for separator line
-TEXT_COLOR = "#414553"  # Dark grey for text
+#Colors
+PRIMARY_COLOR = "#0A2342"    # Deep ocean blue
+ACCENT_COLOR = "#4CAF50"     # Eco-green
+SECONDARY_ACCENT = "#FF6B6B" # Coral
+BACKGROUND_COLOR = "#F8F9FA" # Off-white
+TEXT_COLOR = "#212529"       # Dark charcoal
 
-# Custom CSS for full background styling
+# Replace lines 17-41 with this updated CSS block
 st.markdown(f"""
-    <style>
-        /* Full page background color */
-        .css-18e3th9, .css-1d391kg, .main, .block-container {{
-            background-color: {BEIGE_COLOR};
-        }}
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&display=swap');
 
-        /* Sidebar background in white */
-        .sidebar .sidebar-content {{
-            background-color: white;
-        }}
+/* Apply to all text */
+* {{
+    font-family: 'Space Grotesk', sans-serif !important;
+}}
 
-        /* Header styling with green separator line */
-        .header {{
-            color: {TEXT_COLOR};
-            background-color: {BEIGE_COLOR};
-            padding: 20px;
-            text-align: center;
-            font-size: 2em;
-            font-weight: bold;
-            border-bottom: 2px solid {GREEN_LINE_COLOR}; /* Thin green line */
-        }}
+/* Specific header enhancements */
+h1, h2, h3 {{
+    font-weight: 700 !important;
+    letter-spacing: -0.03em !important;
+}}
 
-        /* Link styling */
-        a {{
-            color: {TEXT_COLOR};
-            text-decoration: none;
-        }}
-    </style>
-    """, unsafe_allow_html=True)
+/* Sidebar text */
+.sidebar .stRadio label div {{
+    font-weight: 600 !important;
+}}
+:root {{
+    --font-primary: 'Space Grotesk', sans-serif;
+    --primary-color: {PRIMARY_COLOR};
+    --accent-color: {ACCENT_COLOR};
+    --secondary-accent: {SECONDARY_ACCENT};
+}}
+
+/* Full page background color (updated variable) */
+.css-18e3th9, .css-1d391kg, .main, .block-container {{
+    background-color: {BACKGROUND_COLOR};
+}}
+
+/* Sidebar background in white (keep existing) */
+.sidebar .sidebar-content {{
+    background-color: white;
+}}
+
+/* Link styling (updated color) */
+a {{
+    color: {PRIMARY_COLOR};
+    text-decoration: none;
+}}
+
+/* New Navigation Styles */
+.st-emotion-cache-1kyxreq {{
+    background: linear-gradient(90deg, {PRIMARY_COLOR} 0%, {ACCENT_COLOR} 100%)!important;
+    border-radius: 8px!important;
+    padding: 8px 12px!important;
+    margin: 0 auto 24px!important;
+    max-width: 1200px!important;
+}}
+
+.st-emotion-cache-1dgmtq3 {{
+    font-family: var(--font-primary)!important;
+    font-weight: 500!important;
+    transition: all 0.2s ease!important;
+    margin: 0 12px!important;
+    color: white!important;
+}}
+
+.st-emotion-cache-r421ms {{
+    background: {SECONDARY_ACCENT}!important;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15)!important;
+    border-radius: 6px!important;
+}}
+
+/* Enhanced Components */
+.streamlit-expanderHeader {{
+    background-color: {PRIMARY_COLOR}!important;
+    color: white!important;
+    border-radius: 8px!important;
+    padding: 12px 16px!important;
+}}
+
+.stMetric {{
+    border: 1px solid {ACCENT_COLOR}55!important;
+    border-radius: 12px;
+    padding: 16px!important;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}}
+
+.stProgress > div > div {{
+    background: {ACCENT_COLOR}!important;
+}}
+
+/* Typography Overrides */
+body {{
+    font-family: var(--font-primary)!important;
+}}
+
+.stMarkdown h1, .stMarkdown h2, .stMarkdown h3 {{
+    font-family: var(--font-primary)!important;
+    color: {PRIMARY_COLOR}!important;
+}}
+
+.stMetricLabel {{
+    font-family: var(--font-primary)!important;
+    font-weight: 600!important;
+    color: {PRIMARY_COLOR}!important;
+}}
+
+.st-emotion-cache-1v0mbdj {{
+    font-family: var(--font-primary)!important;
+}}
+
+/* Replace existing border declarations with: */
+div[data-testid="stExpander"] {{
+    outline: none !important;
+    box-shadow: none !important;
+    border-style: none !important;
+}}
+
+/* Add this for sidebar expander specifically */
+.sidebar .streamlit-expander {{
+    background: {PRIMARY_COLOR}15 !important;
+    border-radius: 12px !important;
+    padding: 8px !important;
+}}
+
+</style>
+""", unsafe_allow_html=True)
+
 
 # Horizontal Menu
 from streamlit_option_menu import option_menu
@@ -58,19 +152,29 @@ horizontal_menu = option_menu( #CODE FROM Räthlein, B. (n.d.). Streamlit option
     default_index=0,
     orientation="horizontal",
     styles={
-        "container": {"padding": "0!important", "background-color": "#dff0da"},
-        "icon": {"color": "#5f8b55", "font-size": "20px"},
-        "nav-link": {"font-size": "18px", "text-align": "center", "margin": "0px", "--hover-color": "#eee"},
-        "nav-link-selected": {"background-color": "lightblue"},
+        "container": {
+            "padding": "0!important",
+            "background": f"linear-gradient(90deg, {PRIMARY_COLOR} 0%, {ACCENT_COLOR} 100%)",
+            "border-radius": "8px",
+            "margin": "0 auto",
+            "max-width": "1200px"
+        },
+        "icon": {"color": SECONDARY_ACCENT, "font-size": "22px"},
+        "nav-link": {
+            "font-family": "'Space Grotesk', sans-serif",
+            "font-size": "18px",
+            "text-align": "center",
+            "margin": "0px 12px",
+            "padding": "12px 20px!important",
+            "--hover-color": f"{ACCENT_COLOR}55",
+            "border-radius": "8px"
+        },
+        "nav-link-selected": {
+            "background-color": f"{SECONDARY_ACCENT}!important",
+            "font-weight": 700
+        }
     }
 )
-# Apply the header with the correct background color and separator line
-st.markdown(f"""
-    <div class="header">
-        TwoTruths&Data
-    </div>
-    """, unsafe_allow_html=True)
-
 
 # Conditional Rendering Based on Selection
 if horizontal_menu == "Introduction":
@@ -169,12 +273,13 @@ if horizontal_menu == "Introduction":
     )
 elif horizontal_menu == "Maps":
     # Sidebar for Maps Navigation
-    st.sidebar.title("Map Navigation")
-    page = st.sidebar.radio(
-        "Navigate within Maps",
-        ["General", "Plastic", "Metal", "Hazardous Waste"],
-    index=0  # Default to "Main"
-    )
+    with st.sidebar.expander("🗺️ **Map Navigation**", expanded=True):
+        page = st.radio(
+            "Select waste category:",
+            ["General", "Plastic", "Metal", "Hazardous Waste"],
+            index=0,
+            label_visibility="collapsed"
+        )
 
     # Load shapefile for world map
     shapefile_path = r'110m_cultural/ne_110m_admin_0_countries.shp' #File from Natural Earth » 1:110m Cultural Vectors—Free vector and raster map data at 1:10m, 1:50m, and 1:110m scales. (n.d.).
@@ -289,7 +394,9 @@ elif horizontal_menu == "Maps":
             }},
             map_style="light"  # Set map background to light style
             )
-        st.pydeck_chart(r)
+        with st.spinner("Generating export visualization..."):
+            st.pydeck_chart(r)
+
         st.write(
                     "Data Source:"
                     "Eurostat. (2024). *Trade in waste by type of material and partner* [Online data set]. DOI: "
@@ -462,7 +569,9 @@ elif horizontal_menu == "Maps":
             }},
             map_style="light"  # Set map background to light style
         )
-        st.pydeck_chart(r)
+        with st.spinner("Generating export visualization..."):
+            st.pydeck_chart(r)
+            
         st.write(
             "Data Source:"
             "Eurostat. (2024). *Trade in waste by type of material and partner* [Online data set]. DOI: "
@@ -760,7 +869,9 @@ elif horizontal_menu == "Maps":
             }},
             map_style="light"  # Set map background to light style
         )
-        st.pydeck_chart(r)
+        with st.spinner("Generating export visualization..."):
+            st.pydeck_chart(r)
+            
         st.write(
             "Data Source:"
             "Eurostat. (2024). *Trade in waste by type of material and partner* [Online data set]. DOI: "
@@ -1069,7 +1180,9 @@ elif horizontal_menu == "Maps":
             }},
             map_style="light"  # Set map background to light style
         )
-        st.pydeck_chart(r)
+        with st.spinner("Generating export visualization..."):
+            st.pydeck_chart(r)
+            
         st.write(
             "Data Source:"
             "Eurostat. (2024). *Transboundary shipments of notified waste by partner, hazardousness and waste management operations* [Online data set]. DOI: "
