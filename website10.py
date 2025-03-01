@@ -204,8 +204,8 @@ elif horizontal_menu == "Maps":
         all_data.drop(columns=['Country'], inplace=True)
 
         # Save or display the updated dataset
-        all_data.to_csv("data03_with_alpha3.csv", index=False)
-        print("Updated file saved as 'data03_with_alpha3.csv'")
+        #all_data.to_csv("data03_with_alpha3.csv", index=False)
+        #print("Updated file saved as 'data03_with_alpha3.csv'")
 
         # Sidebar to choose the year
         st.sidebar.title("Select Year")
@@ -369,8 +369,8 @@ elif horizontal_menu == "Maps":
         plastic_data.drop(columns=['Country'], inplace=True)
 
         # Save or display the updated dataset
-        plastic_data.to_csv("plastic01_with_alpha3.csv", index=False)
-        print("Updated file saved as 'plastic01_with_alpha3.csv'")
+        #plastic_data.to_csv("plastic01_with_alpha3.csv", index=False)
+        #print("Updated file saved as 'plastic01_with_alpha3.csv'")
 
         # Sidebar to choose the year
         st.sidebar.title("Select Year")
@@ -653,8 +653,8 @@ elif horizontal_menu == "Maps":
         metal_data.drop(columns=['Country'], inplace=True)
 
         # Save or display the updated dataset
-        metal_data.to_csv("metal01_with_alpha3.csv", index=False)
-        print("Updated file saved as 'metal01_with_alpha3.csv'")
+        #metal_data.to_csv("metal01_with_alpha3.csv", index=False)
+        #print("Updated file saved as 'metal01_with_alpha3.csv'")
 
         # Sidebar to choose the year
         st.sidebar.title("Select Year")
@@ -955,8 +955,8 @@ elif horizontal_menu == "Maps":
         haz_data.drop(columns=['Country'], inplace=True)
 
         # Save or display the updated dataset
-        haz_data.to_csv("haz01_with_alpha3.csv", index=False)
-        print("Updated file saved as 'haz01_with_alpha3.csv'")
+        #haz_data.to_csv("haz01_with_alpha3.csv", index=False)
+        #print("Updated file saved as 'haz01_with_alpha3.csv'")
 
         # Sidebar to choose the year
         st.sidebar.title("Select Year")
