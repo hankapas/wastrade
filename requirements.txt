@@ -4,4 +4,4 @@ geopandas
 pydeck
 pycountry
 statsmodels
-streamlit-option-menu
+streamlit_option_menu
