@@ -949,11 +949,14 @@ elif horizontal_menu == "Maps":
         )
 
         st.subheader("Ferrous vs. Non-Ferrous Metals")
-        st.write(
+        st.info(
             """
-        Metals are generally divided into two groups: ferrous and non-ferrous metals. Ferrous metals are usually magnetic, stronger, more durable, and more susceptible to corrosion. Some examples include: steel, cast iron, wrought iron. Non-ferrous materials are non-magnetic, highly conductive, resistant to corrosion, and more lightweight. Examples include aluminum, copper, zinc, bronze, and lead.
+        *Did you know?*
+        Metals are generally divided into two groups: ferrous and non-ferrous metals.
+        1. Ferrous metals are usually magnetic, stronger, more durable, and more susceptible to corrosion. Some examples include: steel, cast iron, wrought iron.
+        2. Non-ferrous materials are non-magnetic, highly conductive, resistant to corrosion, and more lightweight. Examples include aluminum, copper, zinc, bronze, and lead.""")
 
-        Ferrous metals, while cheaper and easier to recycle, are less durable and more prone to corrosion compared to non-ferrous metals. They are also considered less harmful to the environment. Understanding the balance between these two types of metals is crucial in the context of the global metal waste trade. Including data on the occurrence and trade patterns of ferrous versus non-ferrous metals would help shed light on their respective roles in this market.
+        st.write("""Ferrous metals, while cheaper and easier to recycle, are less durable and more prone to corrosion compared to non-ferrous metals. They are also considered less harmful to the environment. Understanding the balance between these two types of metals is crucial in the context of the global metal waste trade. Including data on the occurrence and trade patterns of ferrous versus non-ferrous metals would help shed light on their respective roles in this market.
             """
         )
 
