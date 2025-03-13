@@ -703,7 +703,7 @@ elif horizontal_menu == "Maps":
         with st.expander("Why is this an ethics concern?"):
             st.write(
                 """
-        If we look at the full issue through the lens of Iris Youn's Social Connection Model (SCM) [8], the negative consequences of waste export can be thought of as structural injustice as some people bear the consequences of an issue that was created due to complicated intertwined reasons. As everyone creates waste (except for probably very few individuals), everyone in the EU is responsible for the situation and its improvement as everybody participates in the structural injustice. It is also an appropriate model as there is no one entity doing the harm but rather a series of choices of various actors that lead to the outcome.
+        If we look at the full issue through the lens of Iris Young's Social Connection Model (SCM) [8], the negative consequences of waste export can be thought of as structural injustice as some people bear the consequences of an issue that was created due to complicated intertwined reasons. As everyone creates waste (except for probably very few individuals), everyone in the EU is responsible for the situation and its improvement as everybody participates in the structural injustice. It is also an appropriate model as there is no one entity doing the harm but rather a series of choices of various actors that lead to the outcome.
                 """
             )
 
