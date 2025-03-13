@@ -36,7 +36,9 @@ h1, h2, h3 {{
 /* Sidebar text */
 .sidebar .stRadio label div {{
     font-weight: 600 !important;
+    color: {ACCENT_COLOR} !important; /* Change sidebar text color to theme green */
 }}
+
 :root {{
     --font-primary: 'Space Grotesk', sans-serif;
     --primary-color: {PRIMARY_COLOR};
@@ -160,6 +162,26 @@ div[data-baseweb="select"] > div {{
 }}
 </style>
 """, unsafe_allow_html=True)
+
+st.markdown("""
+<style>
+/* Smooth transition for sidebar */
+.sidebar .sidebar-content {
+    transition: all 0.3s ease-in-out !important;
+}
+
+/* Fade-in animation for content */
+.stApp {
+    animation: fadeIn 0.5s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0.7; }
+    to { opacity: 1; }
+}
+</style>
+""", unsafe_allow_html=True)
+
 
 
 # Horizontal Menu
@@ -287,6 +309,8 @@ if horizontal_menu == "Introduction":
     )
 elif horizontal_menu == "Maps":
     # Sidebar for Maps Navigation
+    with st.spinner("Loading map view..."):
+         time.sleep(0.5)  # Short delay for visual transition
     with st.sidebar.expander("🗺️ **Map Navigation**", expanded=True):
         page = st.radio(
             "Select waste category:",
@@ -380,7 +404,10 @@ elif horizontal_menu == "Maps":
         world['fill_color'] = world['OBS_VALUE'].apply(lambda x: get_custom_shade(x, max_obs_value))
         # Add a formatted OBS_VALUE column for tooltip
         world['formatted_OBS_VALUE'] = world['OBS_VALUE'].apply(lambda x: f"{x:,.0f}")
-
+        # Update your tooltip to include this information
+        tooltip_html = """
+        <b>{SOV_A3}</b>: {formatted_OBS_VALUE} tonnes/year
+        """
         # Set up the Pydeck layer with precomputed colors
         layer = pdk.Layer(
             "GeoJsonLayer",
@@ -395,27 +422,45 @@ elif horizontal_menu == "Maps":
             )
         # View configuration
         view_state = pdk.ViewState(latitude=10, longitude=20, zoom=1)
-
-        # Display map with light style background
+        #Display map with enhanced tooltip
         r = pdk.Deck(
             layers=[layer],
             initial_view_state=view_state,
             tooltip={
-            "html": "<b>{SOV_A3}</b>: {formatted_OBS_VALUE} tonnes/year",
-            "style": {
-                "backgroundColor": "steelblue",
-                "color": "white"
-            }},
-            map_style="light"  # Set map background to light style
-            )
+                "html": tooltip_html,
+                "style": {
+                    "backgroundColor": "steelblue",
+                    "color": "white",
+                    "maxWidth": "300px",
+                    "padding": "10px"
+                }
+            },
+            map_style="light"
+        )
         with st.spinner("Generating export visualization..."):
             st.pydeck_chart(r)
-
         st.write(
                     "Data Source:"
                     "Eurostat. (2024). *Trade in waste by type of material and partner* [Online data set]. DOI: "
                     "[10.2908/env_wastrdmp](https://doi.org/10.2908/env_wastrdmp)"
                 )
+         # Add custom country information box here
+         # Create a selectbox below the map for more information about specific countries
+        selected_country = st.selectbox(
+            "Select a country for more information:",
+            ["-", "Turkey", "India"],
+            index=0
+        )
+
+         # Display additional information based on selection
+        if selected_country == "Turkey":
+            st.subheader("About Turkey")
+            st.write("Turkey is the largest recipient of EU waste exports, importing approximately 12 million tonnes of total waste from the EU in 2023. The country is particularly prominent in steel scrap imports. However, Turkey struggles with proper waste management, with studies showing that imported plastic waste often ends up in illegal dumpsites or is openly burned, releasing toxic chemicals.")
+            st.info("*Did you know?* A 2022 Greenpeace study documented irreversible environmental damage in Adana, Turkey, where dangerous chemicals and heavy metals from plastic waste imported from the UK and Germany were detected at levels thousands of times higher than in uncontaminated soil, posing significant risks to soil, water sources, and the food chain in the region.")
+        elif selected_country == "India":
+            st.subheader("About India")
+            st.write("India has become a major destination for EU waste exports, especially following China's 2018 waste import ban. The country faces significant challenges in waste management infrastructure, with much of the imported waste ending up in informal recycling.")
+            st.info("*Did you know?* India followed the Basel Convention in 2016, making all imports of waste for disposal illegal and introducing stricter documentation requirements for recycling and recovery.")
         
         # Divider for visual separation
         st.markdown("---")
