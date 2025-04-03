@@ -239,11 +239,21 @@ if horizontal_menu == "Introduction":
     )
 
     st.write(
-        "The waste market is unlike traditional economic markets. Here, producers often pay consumers to “consume” waste through recycling or disposal, creating significant negative externalities, such as pollution from waste processing. These externalities disproportionately affect regions that are tasked with managing imported waste. Alternatively, from a product market perspective, neither consumers nor producers bear the cost of waste disposal directly. Instead, this burden often falls on municipalities [2]."
+        "Waste generation is an externality in most markets, as producing goods inevitably results in waste. Some markets generate more waste than others. For example, the real estate market creates substantial waste during the construction of new buildings, much of which we still lack proper methods to dispose of [2]. Another example is food production, which generates significant waste due to plastic packaging. This particular issue has likely received more attention than any other form of waste generation since food packaging is the biggest plastic pollutant [3]. Neither consumers nor producers directly bear the costs of waste disposal. Instead, this burden often falls on municipalities [4]. This classifies it as a negative externality of production."
     )
 
     st.write(
-        "To address these issues, Extended Producer Responsibility (EPR) policies are set to begin in 2025. EPR shifts the financial and operational responsibility of waste disposal from municipalities to producers, aiming to meet EU recycling targets [3]. However, while this policy redistributes responsibility, it does not directly regulate waste disposal itself. This could inadvertently incentivize waste export, exacerbating existing inequalities."
+        "Examining waste creation as a market externality highlights challenges similar to those posed by other externalities. One key issue with externalities is that different markets produce varying amounts of waste with differing impacts on the world [5]. For instance, we can agree that producing hazardous waste is objectively worse than producing non-hazardous waste when considering scale and consequences."
+    )
+
+    st.write("Waste treatment facilities themselves also create various negative externalities. Landfills produce leachate (a significant environmental concern discussed here) and emit landfill gases like CO2 and CH4 [6]. Other waste management facilities, such as incinerators, also contribute to environmental externalities through air pollution. However, these facilities generate more than just environmental issues. Property values decrease in areas near waste treatment facilities is another key issue discussed here. This happens due to occurances odor, dust, wind-blown litter, or increased occurrences of animals such as seagulls near landfills [6]. Additionally, there are indirect factors that significantly contribute to property devaluation, such as the fear of negative health impacts and concerns about a reduced quality of life for those living nearby (which leads to a decreased demand for such property)."
+    )
+
+    st.write("Given the cumulative negative externalities associated with waste and its treatment, waste trade becomes a layered issue. When waste is sold, the paying party (the one selling it) essentially pays for disposal at a market-determined price where demand and supply meet equilibrium (as seen in the picture). However, this price does not account for social costs like leachate management or property value loss. These unaccounted-for costs (the externalities of waste management) are instead borne by surrounding communities and municipalities responsible for environmental cleanup. Ideally, these costs should be borne by the payer (the seller), which is why many countries impose taxes on waste imports to mitigate these externalities. However, some costs remain uncovered, such as property devaluation and reduced quality of life for surrounding communities. That means these costs became burdens of already disadvantaged populations. Furthermore, corruption within the industry exacerbates this issue [7]; sometimes, the funds paid by the payer are not used to address social costs at all."
+    )
+
+    st.write(
+        "From the EU’s side, Extended Producer Responsibility (EPR) policies are set to begin in 2025 to address these issues. EPR shifts the financial and operational responsibility for waste disposal from municipalities to producers and aims to help meet EU recycling targets [8]. This policy represents progress by redistributing responsibility, a step forward in terms of accountability as outlined in the Social Connectivity Model. However, it does not directly regulate how waste is disposed of, but only who is responsible for it within EU borders. Without addressing disposal methods comprehensively, this policy risks inadvertently incentivizing waste exports, which could exacerbate existing inequalities."
     )
 
     st.write(
@@ -261,12 +271,12 @@ if horizontal_menu == "Introduction":
 
     st.subheader("Mapping the Unknown")
     st.write(
-        "Global waste trade operates through complex and often not transparent networks. Waste exports frequently go through multiple countries, making it difficult to know their ultimate destinations and fates. For instance, Malaysia is commonly reported as a destination for U.S. waste, yet evidence shows it also receives waste originating in China and Indonesia [4]. Given that Indonesia imports waste from the EU, it is unclear whether this waste is processed locally or further exported to countries like Malaysia. These convoluted pathways make it nearly impossible to ascertain where the waste ends up or how it is handled."
+        "Global waste trade operates through complex and often not transparent networks. Waste exports frequently go through multiple countries, making it difficult to know their ultimate destinations and fates. For instance, Malaysia is commonly reported as a destination for U.S. waste, yet evidence shows it also receives waste originating in China and Indonesia [9]. Given that Indonesia imports waste from the EU, it is unclear whether this waste is processed locally or further exported to countries like Malaysia. These convoluted pathways make it nearly impossible to ascertain where the waste ends up or how it is handled."
     )
 
     st.subheader("The Waste-Income Paradox")
     st.write(
-        "There is a strong positive correlation between a country’s income level and its waste generation per capita[5]. Higher-income countries produce more waste per capita but also have better waste collection systems and higher rates of recycling and incineration (controlled incineration). In contrast, upper-middle-income countries rely heavily on landfills, while lower-middle-income and low-income countries often depend on open dumping."
+        "There is a strong positive correlation between a country’s income level and its waste generation per capita[10]. Higher-income countries produce more waste per capita but also have better waste collection systems and higher rates of recycling and incineration (controlled incineration). In contrast, upper-middle-income countries rely heavily on landfills, while lower-middle-income and low-income countries often depend on open dumping."
     )
 
     st.write(
@@ -289,19 +299,39 @@ if horizontal_menu == "Introduction":
         <a href="https://e360.yale.edu/features/what_makes_europe_greener_than_the_us">https://e360.yale.edu/features/what_makes_europe_greener_than_the_us</a>
         </p>
         <p style="font-size: 12px;">
-        2. Bishop, A. (2017). Examining waste as an economic externality. Discard Studies: Social Studies of Waste, Pollution & Externalities. Retrieved from 
+        2. Ragossnig AM. Construction and demolition waste – Major challenges ahead! Waste Management & Research. 2020;38(4):345-346. 
+        <a href="https://journals.sagepub.com/doi/full/10.1177/0734242X20910309">https://journals.sagepub.com/doi/full/10.1177/0734242X20910309</a>
+        </p>
+        <p style="font-size: 12px;">
+        3. Ncube, L. K., Ude, A. U., Ogunmuyiwa, E. N., Zulkifli, R., & Beas, I. N. (2020). Environmental Impact of Food Packaging Materials: A Review of Contemporary Development from Conventional Plastics to Polylactic Acid Based Materials. Materials (Basel, Switzerland), 13(21), 4994. 
+        <a href="https://doi.org/10.3390/ma13214994">https://doi.org/10.3390/ma13214994</a>
+        </p>
+        <p style="font-size: 12px;">
+        4. Bishop, A. (2017). Examining waste as an economic externality. Discard Studies: Social Studies of Waste, Pollution & Externalities. Retrieved from 
         <a href="https://discardstudies.com/2017/10/30/examining-waste-as-an-economic-externality/">https://discardstudies.com/2017/10/30/examining-waste-as-an-economic-externality/</a>
         </p>
         <p style="font-size: 12px;">
-        3. Europen. (2024). Extended producer responsibility. The European Organization for Packaging and the Environment. Retrieved from 
+        5. Frischmann, B. M., & Ramello, G. B. (2023). Externalities, scarcity, and abundance. Frontiers in research metrics and analytics, 7, 1111446. 
+        <a href="https://doi.org/10.3389/frma.2022.1111446">https://doi.org/10.3389/frma.2022.1111446</a>
+        </p>
+        <p style="font-size: 12px;">
+        6. Eshet, T., Ayalon, O., & Shechter, M. (2006). Valuation of externalities of selected waste management alternatives: A comparative review and analysis. Resources, Conservation and Recycling, 46(4), 335–364. 
+        <a href="https://doi.org/10.1016/j.resconrec.2005.08.004">https://doi.org/10.1016/j.resconrec.2005.08.004</a>
+        </p>
+        <p style="font-size: 12px;">
+        7. DW Planet A. (2021, December 24). Your plastic waste might be traded by criminals [Video]. 
+        <a href="https://www.youtube.com/watch?v=tID-AChSg7o">https://www.youtube.com/watch?v=tID-AChSg7o</a>
+        </p>
+        <p style="font-size: 12px;">
+        8. Europen. (2024). Extended producer responsibility. The European Organization for Packaging and the Environment. Retrieved from 
         <a href="https://www.europen-packaging.eu/policy-area/extended-producer-responsibility/">https://www.europen-packaging.eu/policy-area/extended-producer-responsibility/</a>
         </p>
         <p style="font-size: 12px;">
-        4. Latiff, R. (2024). Malaysia opens anti-dumping duty probe on plastic imports from China, Indonesia. Reuters. Retrieved from 
+        9. Latiff, R. (2024). Malaysia opens anti-dumping duty probe on plastic imports from China, Indonesia. Reuters. Retrieved from 
         <a href="https://www.reuters.com/sustainability/malaysia-opens-anti-dumping-duty-probe-plastic-imports-china-indonesia-2024-08-09/">https://www.reuters.com/sustainability/malaysia-opens-anti-dumping-duty-probe-plastic-imports-china-indonesia-2024-08-09/</a>
         </p>
         <p style="font-size: 12px;">
-        5. Kaza, S., Yao, L. C., Bhada Tata, P., & Van Woerden, F. (2018). What a Waste 2.0: A Global Snapshot of Solid Waste Management to 2050. World Bank Group. Retrieved from 
+        10. Kaza, S., Yao, L. C., Bhada Tata, P., & Van Woerden, F. (2018). What a Waste 2.0: A Global Snapshot of Solid Waste Management to 2050. World Bank Group. Retrieved from 
         <a href="http://documents.worldbank.org/curated/en/697271544470229584/What-a-Waste-2-0-A-Global-Snapshot-of-Solid-Waste-Management-to-2050">http://documents.worldbank.org/curated/en/697271544470229584/What-a-Waste-2-0-A-Global-Snapshot-of-Solid-Waste-Management-to-2050</a>
         </p>
         """,
