@@ -87,11 +87,14 @@ a {{
 
 /* Enhanced Components */
 .streamlit-expanderHeader {{
-    background-color: {PRIMARY_COLOR}!important;
-    color: white!important;
-    border-radius: 8px!important;
-    padding: 12px 16px!important;
-}}
+        background-color: #007BFF !important;
+        color: white !important; /* Text color */
+        border-radius: 8px !important; /* Rounded corners */
+        padding: 12px 16px !important; /* Padding around the text */
+        font-weight: 700 !important; /* Bold font weight */
+        letter-spacing: -0.03em !important; /* Adjust letter spacing */
+        font-size: 20px !important; /* Font size to match subheader */
+    }}
 
 .stMetric {{
     border: 1px solid {ACCENT_COLOR}55!important;
@@ -233,32 +236,31 @@ if horizontal_menu == "Introduction":
         "Sweep your own doorstep before you sweep someone else's. Before the EU critiques others for their climate inaction, it should examine its own environmental practices critically. Is the EU analyzing the right data and metrics to estimate its true environmental performance? These questions become especially relevant when we focus on the EU’s handling of waste, specifically the export of waste to other regions."
     )
 
-    st.subheader("A Question of Responsibility")
-    st.write(
-        "A question to ask is if the EU is the global leader in climate and environment, why does it not process 100% of its waste? Instead of addressing waste fully within its borders, the EU ships some of it to other countries. It transfers the responsibility for disposal and recycling to regions less well-equipped to handle the burden than the EU is. This raises a critical question: if the EU claims climate leadership, why does it outsource the negative consequences of its consumption?"
-    )
-
-    st.write(
-        "Waste generation is an externality in most markets, as producing goods inevitably results in waste. Some markets generate more waste than others. For example, the real estate market creates substantial waste during the construction of new buildings, much of which we still lack proper methods to dispose of [2]. Another example is food production, which generates significant waste due to plastic packaging. This particular issue has likely received more attention than any other form of waste generation since food packaging is the biggest plastic pollutant [3]. Neither consumers nor producers directly bear the costs of waste disposal. Instead, this burden often falls on municipalities [4]. This classifies it as a negative externality of production."
-    )
-
-    st.write(
-        "Examining waste creation as a market externality highlights challenges similar to those posed by other externalities. One key issue with externalities is that different markets produce varying amounts of waste with differing impacts on the world [5]. For instance, we can agree that producing hazardous waste is objectively worse than producing non-hazardous waste when considering scale and consequences."
-    )
-
-    st.write("Waste treatment facilities themselves also create various negative externalities. Landfills produce leachate (a significant environmental concern discussed here) and emit landfill gases like CO2 and CH4 [6]. Other waste management facilities, such as incinerators, also contribute to environmental externalities through air pollution. However, these facilities generate more than just environmental issues. Property values decrease in areas near waste treatment facilities is another key issue discussed here. This happens due to occurances odor, dust, wind-blown litter, or increased occurrences of animals such as seagulls near landfills [6]. Additionally, there are indirect factors that significantly contribute to property devaluation, such as the fear of negative health impacts and concerns about a reduced quality of life for those living nearby (which leads to a decreased demand for such property)."
-    )
-
-    st.write("Given the cumulative negative externalities associated with waste and its treatment, waste trade becomes a layered issue. When waste is sold, the paying party (the one selling it) essentially pays for disposal at a market-determined price where demand and supply meet equilibrium (as seen in the picture). However, this price does not account for social costs like leachate management or property value loss. These unaccounted-for costs (the externalities of waste management) are instead borne by surrounding communities and municipalities responsible for environmental cleanup. Ideally, these costs should be borne by the payer (the seller), which is why many countries impose taxes on waste imports to mitigate these externalities. However, some costs remain uncovered, such as property devaluation and reduced quality of life for surrounding communities. That means these costs became burdens of already disadvantaged populations. Furthermore, corruption within the industry exacerbates this issue [7]; sometimes, the funds paid by the payer are not used to address social costs at all."
-    )
-
-    st.write(
-        "From the EU’s side, Extended Producer Responsibility (EPR) policies are set to begin in 2025 to address these issues. EPR shifts the financial and operational responsibility for waste disposal from municipalities to producers and aims to help meet EU recycling targets [8]. This policy represents progress by redistributing responsibility, a step forward in terms of accountability as outlined in the Social Connectivity Model. However, it does not directly regulate how waste is disposed of, but only who is responsible for it within EU borders. Without addressing disposal methods comprehensively, this policy risks inadvertently incentivizing waste exports, which could exacerbate existing inequalities."
-    )
-
-    st.write(
-        "The persistence of waste exports from the EU reflects an interplay of economic power dynamics, a 'Not In My Backyard' (NIMBY) mentality, and ongoing challenges in achieving safe and sustainable waste management. These systemic issues demand solutions that go beyond simple redistribution of responsibility."
-    )
+    with st.expander("A Question of Responsibility"):
+        st.write(
+            "A question to ask is if the EU is the global leader in climate and environment, why does it not process 100% of its waste? Instead of addressing waste fully within its borders, the EU ships some of it to other countries. It transfers the responsibility for disposal and recycling to regions less well-equipped to handle the burden than the EU is. This raises a critical question: if the EU claims climate leadership, why does it outsource the negative consequences of its consumption?"
+        )
+        st.write(
+            "Waste generation is an externality in most markets, as producing goods inevitably results in waste. Some markets generate more waste than others. For example, the real estate market creates substantial waste during the construction of new buildings, much of which we still lack proper methods to dispose of [2]. Another example is food production, which generates significant waste due to plastic packaging. This particular issue has likely received more attention than any other form of waste generation since food packaging is the biggest plastic pollutant [3]. Neither consumers nor producers directly bear the costs of waste disposal. Instead, this burden often falls on municipalities [4]. This classifies it as a negative externality of production."
+        )
+        st.write(
+            "Examining waste creation as a market externality highlights challenges similar to those posed by other externalities. One key issue with externalities is that different markets produce varying amounts of waste with differing impacts on the world [5]. For instance, we can agree that producing hazardous waste is objectively worse than producing non-hazardous waste when considering scale and consequences."
+        )
+        st.write("Waste treatment facilities themselves also create various negative externalities. Landfills produce leachate (a significant environmental concern discussed here) and emit landfill gases like CO2 and CH4 [6]. Other waste management facilities, such as incinerators, also contribute to environmental externalities through air pollution. However, these facilities generate more than just environmental issues. Property values decrease in areas near waste treatment facilities is another key issue discussed here. This happens due to occurances odor, dust, wind-blown litter, or increased occurrences of animals such as seagulls near landfills [6]. Additionally, there are indirect factors that significantly contribute to property devaluation, such as the fear of negative health impacts and concerns about a reduced quality of life for those living nearby (which leads to a decreased demand for such property)."
+                 )
+        st.image(
+            "externalities.png",
+            caption="A picture demonstrating negative externalities of production, modeling the effect of waste production as a social cost.",
+            width=750
+        )
+        st.write("Given the cumulative negative externalities associated with waste and its treatment, waste trade becomes a layered issue. When waste is sold, the paying party (the one selling it) essentially pays for disposal at a market-determined price where demand and supply meet equilibrium (as seen in the picture). However, this price does not account for social costs like leachate management or property value loss. These unaccounted-for costs (the externalities of waste management) are instead borne by surrounding communities and municipalities responsible for environmental cleanup. Ideally, these costs should be borne by the payer (the seller), which is why many countries impose taxes on waste imports to mitigate these externalities. However, some costs remain uncovered, such as property devaluation and reduced quality of life for surrounding communities. That means these costs became burdens of already disadvantaged populations. Furthermore, corruption within the industry exacerbates this issue [7]; sometimes, the funds paid by the payer are not used to address social costs at all."
+                 )
+        st.write(
+            "From the EU’s side, Extended Producer Responsibility (EPR) policies are set to begin in 2025 to address these issues. EPR shifts the financial and operational responsibility for waste disposal from municipalities to producers and aims to help meet EU recycling targets [8]. This policy represents progress by redistributing responsibility, a step forward in terms of accountability as outlined in the Social Connectivity Model. However, it does not directly regulate how waste is disposed of, but only who is responsible for it within EU borders. Without addressing disposal methods comprehensively, this policy risks inadvertently incentivizing waste exports, which could exacerbate existing inequalities."
+        )
+        st.write(
+            "The persistence of waste exports from the EU reflects an interplay of economic power dynamics, a 'Not In My Backyard' (NIMBY) mentality, and ongoing challenges in achieving safe and sustainable waste management. These systemic issues demand solutions that go beyond simple redistribution of responsibility."
+        )
 
     st.subheader("Waste as a Commodity")
     st.write(
