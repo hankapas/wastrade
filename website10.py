@@ -251,7 +251,7 @@ if horizontal_menu == "Introduction":
         col1, col2, col3 = st.columns([1, 2, 1])  # Adjust column widths as needed
         with col2:
             st.image(
-                "externalities01.png",
+                "externalities02.png",
                 caption="A picture demonstrating negative externalities of production, modeling the effect of waste production as a social cost.",
                 width=400
             )
