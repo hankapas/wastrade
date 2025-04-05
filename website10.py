@@ -248,11 +248,13 @@ if horizontal_menu == "Introduction":
         )
         st.write("Waste treatment facilities themselves also create various negative externalities. Landfills produce leachate (a significant environmental concern discussed here) and emit landfill gases like CO2 and CH4 [6]. Other waste management facilities, such as incinerators, also contribute to environmental externalities through air pollution. However, these facilities generate more than just environmental issues. Property values decrease in areas near waste treatment facilities is another key issue discussed here. This happens due to occurances odor, dust, wind-blown litter, or increased occurrences of animals such as seagulls near landfills [6]. Additionally, there are indirect factors that significantly contribute to property devaluation, such as the fear of negative health impacts and concerns about a reduced quality of life for those living nearby (which leads to a decreased demand for such property)."
                  )
-        st.image(
-            "externalities.png",
-            caption="A picture demonstrating negative externalities of production, modeling the effect of waste production as a social cost.",
-            width=750
-        )
+        col1, col2, col3 = st.columns([1, 2, 1])  # Adjust column widths as needed
+        with col2:
+            st.image(
+                "externalities01.png",
+                caption="A picture demonstrating negative externalities of production, modeling the effect of waste production as a social cost.",
+                width=400
+            )
         st.write("Given the cumulative negative externalities associated with waste and its treatment, waste trade becomes a layered issue. When waste is sold, the paying party (the one selling it) essentially pays for disposal at a market-determined price where demand and supply meet equilibrium (as seen in the picture). However, this price does not account for social costs like leachate management or property value loss. These unaccounted-for costs (the externalities of waste management) are instead borne by surrounding communities and municipalities responsible for environmental cleanup. Ideally, these costs should be borne by the payer (the seller), which is why many countries impose taxes on waste imports to mitigate these externalities. However, some costs remain uncovered, such as property devaluation and reduced quality of life for surrounding communities. That means these costs became burdens of already disadvantaged populations. Furthermore, corruption within the industry exacerbates this issue [7]; sometimes, the funds paid by the payer are not used to address social costs at all."
                  )
         st.write(
@@ -278,7 +280,16 @@ if horizontal_menu == "Introduction":
 
     st.subheader("The Waste-Income Paradox")
     st.write(
-        "There is a strong positive correlation between a country’s income level and its waste generation per capita[10]. Higher-income countries produce more waste per capita but also have better waste collection systems and higher rates of recycling and incineration (controlled incineration). In contrast, upper-middle-income countries rely heavily on landfills, while lower-middle-income and low-income countries often depend on open dumping."
+        "There is a strong positive correlation between a country’s income level and its waste generation per capita[10] as seen in the graph below."
+    )
+    col1, col2, col3 = st.columns([1, 2, 1])  # Adjust column widths as needed
+    with col2:
+        st.image(
+            "income_waste04.png",
+            caption="Figure from Kaza et al. (2018) describing waste generation per capita aggregated based on country’s GDP per capita",
+            width=400
+        )
+    st.write("Higher-income countries produce more waste per capita but also have better waste collection systems and higher rates of recycling and incineration (controlled incineration). In contrast, upper-middle-income countries rely heavily on landfills, while lower-middle-income and low-income countries often depend on open dumping."
     )
 
     st.write(
@@ -1376,11 +1387,13 @@ elif horizontal_menu == "Maps":
                 "disturbance, marking a transition into degradation [11]."
             )
 
-            st.image(
-                "basin.png",
-                caption="A picture demonstrating soil degradation, modeled after a forest degradation example from Ghazoul et al. (2015)[11]",
-                use_container_width=True
-            )
+            col1, col2, col3 = st.columns([1, 4, 1])  # Adjust column widths as needed
+            with col2:
+                st.image(
+                    "basin.png",
+                    caption="A picture demonstrating soil degradation, modeled after a forest degradation example from Ghazoul et al. (2015)[11]",
+                    use_container_width=True
+                )
 
             st.write(
                 "Soil degradation is the result of human-induced changes that strip the soil of its ability to recover naturally [11]. This means a shift not just "
