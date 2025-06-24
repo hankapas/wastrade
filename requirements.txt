@@ -3,5 +3,6 @@ pandas
 geopandas
 pydeck
 pycountry
-statsmodels
+scipy==1.15.0
+statsmodels==0.14.4
 streamlit_option_menu
