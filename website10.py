@@ -1,11 +1,17 @@
+import sys
+import subprocess
+import re
 #ALL CODE BELOW IS DONE THROUGH ITERATIONS WITH CHATGPT
 import streamlit as st
 import pandas as pd
 import geopandas as gpd
 import pydeck as pdk
 import pycountry
-import statsmodels.formula.api as smf
+import sys
+import scipy
 import time
+import statsmodels.formula.api as smf
+
 
 # Set page configuration
 st.set_page_config(page_title="Wastrade", layout="wide")
