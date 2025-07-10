@@ -169,25 +169,35 @@ div[data-baseweb="select"] > div {{
     font-family: 'Space Grotesk', sans-serif !important;
     font-size: 14px !important;
 }}
-</style>
-""", unsafe_allow_html=True)
 
-st.markdown("""
-<style>
 /* Smooth transition for sidebar */
-.sidebar .sidebar-content {
+.sidebar .sidebar-content {{
     transition: all 0.3s ease-in-out !important;
-}
+}}
 
 /* Fade-in animation for content */
-.stApp {
+.stApp {{
     animation: fadeIn 0.5s ease;
-}
+}}
 
-@keyframes fadeIn {
-    from { opacity: 0.7; }
-    to { opacity: 1; }
-}
+@keyframes fadeIn {{
+    from {{ opacity: 0.7; }}
+    to {{ opacity: 1; }}
+}}
+
+/* Make the option_menu container full width */
+    div[data-testid="stHorizontalBlock"] > div:first-child {{
+        width: 100vw !important;
+        min-width: 100vw !important;
+        max-width: 100vw !important;
+        margin-left: calc(-50vw + 50%);
+        margin-right: calc(-50vw + 50%);
+        border-radius: 0px !important;
+    }}
+    /* Optional: Remove border-radius for a flush look */
+    .st-emotion-cache-1kyxreq {{
+        border-radius: 0px !important;
+    }}
 </style>
 """, unsafe_allow_html=True)
 
@@ -377,7 +387,11 @@ elif horizontal_menu == "Maps":
     if page == "General":
         st.title("General Export")
         st.header("Export Map Overview")
-        st.write("This map shows exports by EU countries to different destinations with shading based on amount.")
+        st.write("Explore what data says on EU's waste export.")
+        st.info(
+            "This interactive map shows the amounts of waste exported from the EU to specific countries with shading based on amount."
+            "\n\n*Feel free to adjust the selections on the side to explore different years, material types, and export reasons.*"
+        )
 
             # Load datasets
         all_data = pd.read_csv("data03.csv")
@@ -567,7 +581,11 @@ elif horizontal_menu == "Maps":
 
     elif page == "Plastic":
         st.title("Plastic")
-
+        st.write("Explore the definition and nuances of plastic waste")
+        st.info(
+            "This interactive map shows the amounts of plastic waste exported from the EU to specific countries. "
+            "\n\n*Feel free to adjust the selections on the side to explore different years, material types, and export reasons.*"
+        )
             # Load datasets
         plastic_data = pd.read_csv("plastic01.csv")
         country_codes = pd.read_csv("countries_codes_and_coordinates.csv", encoding="latin1")
@@ -865,7 +883,11 @@ elif horizontal_menu == "Maps":
 
     elif page == "Metal":
         st.title("Metal")
-
+        st.write("Explore the definition and nuances of metal waste")
+        st.info(
+            "This interactive map shows the amounts of metal waste exported from the EU to specific countries. "
+            "\n\n*Feel free to adjust the selections on the side to explore different years, material types, and export reasons.*"
+        )
             # Load datasets
         metal_data = pd.read_csv("metal01.csv")
         country_codes = pd.read_csv("countries_codes_and_coordinates.csv", encoding="latin1")
@@ -1169,8 +1191,12 @@ elif horizontal_menu == "Maps":
 
     elif page == "Hazardous Waste":
         st.title("Hazardous Waste")
-        st.write("Explore the definition and nuances of hazardeous waste")
+        st.write("Explore the definition and nuances of hazardous waste")
         # Similar to Plastic page with relevant data and visuals
+        st.info(
+            "This interactive map shows the amounts of hazardous waste exported from the EU to specific countries. "
+            "\n\n*Feel free to adjust the selections on the side to explore different years, material types, and export reasons.*"
+        )
             # Load datasets
         haz_data = pd.read_csv("hazardous01.csv")
         country_codes = pd.read_csv("countries_codes_and_coordinates.csv", encoding="latin1")
@@ -1365,42 +1391,43 @@ elif horizontal_menu == "Maps":
         )
         with st.expander("Want to know how does hazardous waste become harmful to the environment?"):
             st.write(
-                "Leachate — specifically, landfill leachate (as the term can also refer to other substances breaking down) — is a toxic liquid that escapes from landfills into the environment. "
-                "It is high-strength wastewater, meaning it contains extreme pH levels, high chemical oxygen demand (COD) and biochemical oxygen demand (BOD), inorganic salts, "
+                "**Leachate** — specifically, landfill leachate (as the term can also refer to other substances breaking down) — is a toxic liquid that escapes from landfills into the environment. "
+                "It is **high-strength wastewater**, meaning it contains extreme pH levels, high chemical oxygen demand (COD) and biochemical oxygen demand (BOD), inorganic salts, "
                 "and toxins [8]."
             )
 
             st.write(
                 "Preventing leachate formation is impossible, as it is a natural byproduct of waste decomposition, especially in warmer climates. You may have even seen leachate yourself "
                 "around landfills. While many countries have regulations for leachate treatment to minimize its impact, issues with leachate contamination continue to emerge. For example, "
-                "research from the U.S. Geological Survey (USGS) has identified landfill leachate as a host to numerous contaminants of emerging concern, which enter environmental pathways "
+                "research from the U.S. Geological Survey (USGS) has identified landfill leachate as a host to numerous **contaminants of emerging concern**, which enter environmental pathways "
                 "through wastewater treatment systems [9]."
             )
 
-            st.markdown("### Soil Contamination from Leachate")
+            st.markdown("## Soil Contamination from Leachate")
+
             st.write(
-                "Soil contamination is a significant concern near landfills and waste disposal sites. Leachate forms when water goes through waste, dissolving various contaminants. "
-                "If not properly managed, it migrates into the soil, carrying pollutants such as heavy metals, organic chemicals, and pathogens. These pollutants can react with soil "
+                "Soil contamination is a significant concern near landfills and waste disposal sites. **Leachate forms when water goes through waste, dissolving various contaminants.** "
+                "If not properly managed, it migrates into the soil, carrying pollutants such as **heavy metals, organic chemicals, and pathogens**. These pollutants can react with soil "
                 "minerals, altering both the soil's physical and chemical properties [10]."
             )
 
             st.write(
-                "This contamination has several environmental and public health consequences. It can degrade soil structure and nutrient content, making the land unsuitable for agriculture "
+                "This contamination has several environmental and public health consequences. It can **degrade soil structure and nutrient content**, making the land unsuitable for agriculture "
                 "and disrupting local ecosystems. If contaminated soil is used for farming, toxins can enter the food chain, posing health risks to humans and animals. Additionally, "
-                "pollutants can reach further into the ground, contaminating groundwater supplies, which are more difficult to remediate [10]."
+                "pollutants can reach further into the ground, contaminating **groundwater supplies**, which are more difficult to remediate [10]."
             )
 
-            st.write(
+            st.warning(
                 "Soil and, by extension, every natural environment, has a stable state—a point to which it returns even after some disturbance (for example, a forest regrowing after "
                 "low-intensity tree cutting). However, if the disturbance is significant enough, the soil might not be able to revert to its original stable state. This can happen when "
                 "chemicals released through leachate are too toxic and do not break down."
             )
 
             st.write(
-                "When contamination reaches this level, it can push the environment into what is known as an alternative stable state (ASS)—a condition where the soil undergoes fundamental "
+                "When contamination reaches this level, it can push the environment into what is known as an **alternative stable state (ASS)**—a condition where the soil undergoes fundamental "
                 "changes and cannot return to its original state (see a picture below for demonstration). The shift to ASS can happen when landfills remain in one place for extended periods, "
                 "polluting the surrounding soil to the point where it becomes unsuitable for typical use, such as planting vegetation. In these cases, the soil does not recover from the "
-                "disturbance, marking a transition into degradation [11]."
+                "disturbance, marking a transition into **degradation** [11]."
             )
 
             col1, col2, col3 = st.columns([1, 4, 1])  # Adjust column widths as needed
@@ -1412,23 +1439,23 @@ elif horizontal_menu == "Maps":
                 )
 
             st.write(
-                "Soil degradation is the result of human-induced changes that strip the soil of its ability to recover naturally [11]. This means a shift not just "
+                "**Soil degradation** is the result of human-induced changes that strip the soil of its ability to recover naturally [11]. This means a shift not just "
                 "in its chemical and mineral composition but also in its properties and usability—whether for pasture, agriculture, or other purposes. When this resilience is lost, "
                 "the damage becomes long-term or even permanent."
             )
 
             st.write(
-                "The severity of these changes varies, but a concerning example is the presence of persistent toxic chemicals in landfill sites in Adana, Turkey[12]. These substances break "
+                "The severity of these changes varies, but a concerning example is the presence of **persistent toxic chemicals** in landfill sites in Adana, Turkey[12]. These substances break "
                 "down extremely slowly, continuing to affect the environment long after waste disposal has ceased. Even when pollution is no longer actively occurring, hazardous particles "
                 "can remain in the soil."
             )
 
             st.write(
                 "Scientists in Iran [13] observed similar patterns when studying landfill sites, finding that landfills significantly degrade soil quality over time, leading "
-                "to various environmental consequences. Among these effects, soil near landfills tends to be less fertile due to leachate contamination. Additionally, biomass and microbial "
-                "respiration are disrupted, and heavy metal accumulation poses further risks. Comparable findings emerged from research in Lithuania [14], where scientists "
+                "to various environmental consequences. Among these effects, soil near landfills tends to be less fertile due to leachate contamination. Additionally, **biomass and microbial "
+                "respiration are disrupted**, and **heavy metal accumulation** poses further risks. Comparable findings emerged from research in Lithuania [14], where scientists "
                 "studied post-closure landfill sites. While individual heavy metal concentrations often remained within acceptable limits, their combined presence led to pollution levels "
-                "classified as hazardous. This suggests that it is not any single metal that poses the greatest danger, but rather the cumulative effect of multiple contaminants."
+                "classified as hazardous. This suggests that it is not any single metal that poses the greatest danger, but rather the **cumulative effect of multiple contaminants**."
             )
 
             st.write(
@@ -1439,13 +1466,15 @@ elif horizontal_menu == "Maps":
             )
 
             st.write(
-                "Leachate contamination of drinking water, particularly with heavy metals, has severe health implications. Exposure to these contaminants increases the risk of both carcinogenic "
+                "**Leachate contamination of drinking water, particularly with heavy metals, has severe health implications.** Exposure to these contaminants increases the risk of both carcinogenic "
                 "and non-carcinogenic diseases in both children and adults [16]. However, these risks can be mitigated with proper leachate management and soil protection measures."
             )
 
-            st.write(
-                "Liner systems are a critical component in preventing leachate from contaminating the surrounding soil. These barriers are designed to contain leachate within the landfill, reducing "
-                "the risk of environmental harm. There are two main types of liner systems: natural and synthetic. Natural liners include Compacted Clay Liners (CCL) and Soil Liners, while synthetic "
+            st.markdown("## Liner Systems and Solutions")
+
+            st.success(
+                "**Liner systems** are a critical component in preventing leachate from contaminating the surrounding soil. These barriers are designed to contain leachate within the landfill, reducing "
+                "the risk of environmental harm. There are two main types of liner systems: **natural and synthetic**. Natural liners include Compacted Clay Liners (CCL) and Soil Liners, while synthetic "
                 "options encompass Geomembranes, Geosynthetic Clay Liners, and Composite Liners [16]. Each type has variations, and ongoing research is determining which liners perform best "
                 "under different conditions. While Soil Liners tend to have higher leakage rates, Geosynthetic Clay Liners currently appear to be the most effective option. However, continued innovation and "
                 "site-specific evaluations remain essential in selecting the most suitable liner for each landfill."
