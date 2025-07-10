@@ -487,7 +487,7 @@ elif horizontal_menu == "Maps":
             map_style="light"
         )
         with st.spinner("Generating export visualization..."):
-            st.pydeck_chart(r)
+            st.pydeck_chart(r, use_container_width=True)
         st.write(
                     "Data Source:"
                     "Eurostat. (2024). *Trade in waste by type of material and partner* [Online data set]. DOI: "
@@ -496,8 +496,8 @@ elif horizontal_menu == "Maps":
          # Add custom country information box here
          # Create a selectbox below the map for more information about specific countries
         selected_country = st.selectbox(
-            "Select a country for more information:",
-            ["-", "Turkey", "India"],
+            "Countries importing EU's waste the most:",
+            ["Select a country for more information:", "Turkey", "India"],
             index=0
         )
 
@@ -678,7 +678,7 @@ elif horizontal_menu == "Maps":
             map_style="light"  # Set map background to light style
         )
         with st.spinner("Generating export visualization..."):
-            st.pydeck_chart(r)
+            st.pydeck_chart(r, use_container_width=True)
             
         st.write(
             "Data Source:"
@@ -750,59 +750,71 @@ elif horizontal_menu == "Maps":
             "This practice undermines their sustainability narratives and furthers global environmental injustices. Addressing these challenges demands more than incremental changes to recycling systems—it requires a fundamental rethinking of global plastic production, consumption, and accountability."
         )
         with st.expander("Why is this an ethics concern?"):
-            st.write(
-                """
-        If we look at the full issue through the lens of Iris Young's Social Connection Model (SCM) [8], the negative consequences of waste export can be thought of as structural injustice as some people bear the consequences of an issue that was created due to complicated intertwined reasons. As everyone creates waste (except for probably very few individuals), everyone in the EU is responsible for the situation and its improvement as everybody participates in the structural injustice. It is also an appropriate model as there is no one entity doing the harm but rather a series of choices of various actors that lead to the outcome.
-                """
-            )
+            # Introduction
+            st.write("""
+            If we look at the full issue through the lens of **Iris Young's Social Connection Model (SCM)**, the negative consequences of waste export become an example of *structural injustice*: some people bear the consequences of an issue created by many intertwined choices and incentives. Since everyone creates waste, everyone in the EU shares responsibility for both the situation and its improvement—there is no single entity to blame, but rather a web of actors whose decisions collectively lead to harmful outcomes.
+            """)
 
-            st.write(
-                """
-        Young argues that this injustice happens because the system gives some incentive for it at every step of the way. For the EU's waste export, the main incentive is the lower cost of waste disposal abroad compared to the higher cost of disposal domestically. As researchers note, there is an incentive for companies to exist in the gray zone and export waste to countries with fewer regulations on disposal and pay for giving the waste to local companies that will dispose of it (DW Planet A, 2013). However, the companies could similarly claim that they are just acting in the way the market incentivizes them to. When waste is disposed of abroad, consumers do not see the consequences of their consumption and waste production and do not suffer the side effects of improper disposal. Moreover, it is cheaper to dispose of the waste abroad which is not only beneficial for EU companies but also for consumers for whom products are cheaper (as the cost of their disposal is lower).
-                """
-            )
+            # Highlighted Quote
+            st.markdown("""
+            > *"There is no one entity doing the harm but rather a series of choices of various actors that lead to the outcome."*
+            """)
 
-            st.write(
-                """
-        This way of looking at an issue shifts the focus from placing blame to distributing responsibility. However, a standing criticism of the SCM model is that the mechanics of responsibility distribution and, consequently, of taking action are unclear. Who bears how much responsibility? At what point can consumers say they did everything they could and their conscience is clear? At what point can companies say that? I would argue that these questions still arise from a place of blame and responsibility for blame rather than from a place of responsibility for an issue as a society. However, in navigating the current economic and political systems, there needs to be incentives for individual actors and entities. No company and few individuals are going to take action that is not the most profit-making, cost-saving, and time-saving. There needs to be a series of incentives in place for the desired actions (meaning those that battle the systemic issue or at least do not add to it) to take place.
-                """
-            )
+            # Incentives and Responsibility Section
+            st.markdown("### Incentives and Responsibility")
 
-            st.write(
-                """
-        Young argues that in SCM, we need collective action to make a change and as examples, she gives campaigning and lobbying for better regulations. This sounds promising as those could lead to efficient incentives (either specific laws, tax incentives, etc). However, as experts note, sometimes incentives can be misused and do not guarantee a roadblock to the easier path [3]. Sadly, corruption occurs also within this sector.
-                """
-            )
+            st.write("""
+            Young argues that injustice persists because the system provides incentives at every step. For the EU’s waste export, the **main incentive is cost**: it’s cheaper to dispose of waste abroad than domestically. Companies often operate in legal gray zones, exporting waste to countries with fewer regulations and paying local firms to dispose of it. These companies claim they are simply following market incentives. As a result, consumers are shielded from the consequences of their consumption, and products remain cheaper due to lower disposal costs.
 
-            st.write(
-                """
-        Research indicates housing values can drop by 5.5-12.9% depending on proximity to the landfill [9]. This means that if we add to landfills in lower-income countries or regions within countries, we are perpetuating the cycle of economic inequality by devaluating the properties nearby. The same argument used to justify (or used as a salient support for) not-in-my-backyard initiatives should be kept in mind when exporting the waste abroad. The fact that somebody will have to 'pay' for the landfill or waste disposal facility by devalued property does not go away when waste is exported. The property devaluation happens elsewhere. It is yet another negative externality of the waste market that will happen somewhere. Moreover, it adds to the argument that shipping waste out of higher-income countries to lower-income ones increases structural inequality.
-                """
-            )
+            This perspective shifts the focus from *blame* to *shared responsibility*. However, a common criticism of SCM is that it leaves unclear exactly how responsibility should be distributed or what concrete actions individuals or companies should take. In practice, meaningful change requires **incentives for all actors**—companies and individuals alike—to choose actions that combat, rather than perpetuate, systemic problems.
+            """)
 
-            st.write(
-                """
-        It is power inequality that some communities have higher socio-economic power to direct where these waste disposal costs (including health, environmental, but also economic ones) will be absorbed, especially if those costs will be born by communities who do not have such power to have a say in this process. Especially if as a result of these actions, these socio-economic disparities will be deepened either on a local or global scale.
-                """
-            )
+            # Collective Action and Incentives Section
+            st.markdown("### The Role of Collective Action and Incentives")
 
-            st.write(
-                """
-        The power imbalances that come with the ability to influence decisions about where waste is disposed of—along with consequences like property devaluation in lower-income regions—further reinforce the use of SCM as a framework for understanding this issue. These imbalances make it clear that this is, in fact, a structural injustice.
-                """
-            )
+            st.write("""
+            Young emphasizes the need for **collective action**—such as campaigning and lobbying for better regulations—to create more effective incentives (like laws or tax breaks). Yet, even well-intentioned incentives can be misused, and corruption remains a risk in the sector.
+            """)
 
-            st.write(
-                """
-        The key question is: What can we do about it? As with any structural injustice, the answer is far from straightforward. For one, regulations already exist and are set to be strengthened. However, as discussed, they often fail to fully address the problem, especially when waste trade has largely shifted into legal gray zones or outright illegal practices. Stronger enforcement is necessary, but just as important is a cultural shift in how waste trade is perceived.
-                """
-            )
+            # Highlighted Quote
+            st.markdown("""
+            > *"Sometimes incentives can be misused and do not guarantee a roadblock to the easier path."*
+            """)
 
-            st.write(
-                """
-        This is precisely what the Social Connection Model argues: the entire system bears responsibility because everyone treats it as if it's not their problem. The goal is to change this mindset—not to simply push for waste disposal elsewhere but to advocate for disposal methods that do no harm. A key step is improving corporate accountability, ensuring that recyclables are correctly labeled and that producers take financial responsibility for their products' end-of-life disposal. The broader aim is to establish a system of incentives that prevents every actor, at every stage, from defaulting to the easiest, most harmful option. Individuals play a crucial role in pushing for these changes—both in regulations and in the incentive structures that shape decision-making.
-                """
-            )
+            # Economic Externalities and Inequality Section
+            st.markdown("### Economic Externalities and Inequality")
+
+            st.write("""
+            Research shows that **housing values can drop by 5.5–12.9%** depending on proximity to a landfill. When landfills are sited in lower-income regions or countries, this perpetuates economic inequality by devaluing local property. The “not-in-my-backyard” logic that protects wealthier communities simply shifts the burden elsewhere, making property devaluation and other negative externalities someone else’s problem.
+            """)
+
+            # Highlighted Quote
+            st.markdown("""
+            > *"The property devaluation happens elsewhere. It is yet another negative externality of the waste market that will happen somewhere."*
+            """)
+
+            st.write("""
+            Communities with more socio-economic power can direct waste disposal costs away from themselves, deepening disparities both locally and globally. These **power imbalances** reinforce the SCM framework’s relevance: they show how structural injustice is perpetuated by the ability of some to avoid costs at the expense of others.
+            """)
+
+            # What Can Be Done Section
+            st.markdown("### What Can Be Done?")
+
+            st.write("""
+            **The key question:** *What can we do about it?*
+
+            - **Regulations exist and are being strengthened**, but enforcement often falls short, especially as waste trade moves into legal gray zones or outright illegality.
+            - **Stronger enforcement** is necessary, but so is a cultural shift in how waste trade is perceived.
+            - The Social Connection Model calls for a change in mindset: everyone must recognize their responsibility, not just push the problem elsewhere.
+            - **Corporate accountability** is crucial—producers should be responsible for correct labeling and for the end-of-life disposal of their products.
+            - The ultimate goal is to **establish incentives** that prevent all actors from defaulting to the easiest, most harmful option.
+            - **Individuals** play a vital role by advocating for better regulations and supporting changes to incentive structures.
+            """)
+
+            # Final Highlighted Quote
+            st.markdown("""
+            > *"The entire system bears responsibility because everyone treats it as if it's not their problem. The goal is to change this mindset—not to simply push for waste disposal elsewhere but to advocate for disposal methods that do no harm."*
+            """)
 
         # Divider for references
         st.markdown("---")
@@ -978,7 +990,7 @@ elif horizontal_menu == "Maps":
             map_style="light"  # Set map background to light style
         )
         with st.spinner("Generating export visualization..."):
-            st.pydeck_chart(r)
+            st.pydeck_chart(r, use_container_width=True)
             
         st.write(
             "Data Source:"
@@ -1048,51 +1060,49 @@ elif horizontal_menu == "Maps":
             """
         )
         with st.expander("Want to know more about past, current, and future policies and their effectiveness?"):
-            st.write("Back in 2006, the EU introduced Regulation (EC) No 1013/2006 [5], which prohibited hazardous waste exports to non-EU and non-EFTA countries. This same regulation also banned exports to these countries for disposal (i.e., landfilling or incineration). In theory, only waste meant for material recovery or treatment was allowed. But as we know from available data, that has not been the reality—plenty of exported waste still ended up in landfills. That is especially concerning given that waste exports for recovery or recycling were supposed to be heavily documented and require permits, a process that was further tightened in 2014. India followed suit in 2016, banning all imports of waste for disposal and introducing stricter documentation and permit requirements for recycling and recovery.")
-            
-            st.write("Now, there is a new EU regulation, (EU) 2024/1157 [6], and this one is supposedly stricter than ever - so maybe this time, it will actually work.")
+            # Info box for context or TLDR
+            st.success("**TLDR:** The EU is banning all waste exports from 2026 and 2027. However, exports for disposal to non-EFTA and non-EU countries have technically been banned since 2006. That means, in theory, any exports to places like Turkey or India should have been strictly for recovery or treatment.")
 
-            st.write("Starting May 2026, all waste trade within the EU must be documented digitally to improve transparency.")
+            # Main narrative as regular text
+            st.write("""
+            Back in 2006, the EU introduced Regulation (EC) No 1013/2006 [5], which prohibited hazardous waste exports to non-EU and non-EFTA countries. This same regulation also banned exports to these countries for disposal (i.e., landfilling or incineration). In theory, only waste meant for material recovery or treatment was allowed. But as we know from available data, that has not been the reality—plenty of exported waste still ended up in landfills. That is especially concerning given that waste exports for recovery or recycling were supposed to be heavily documented and require permits, a process that was further tightened in 2014. India followed suit in 2016, banning all imports of waste for disposal and introducing stricter documentation and permit requirements for recycling and recovery.
+            """)
 
-            st.write("Starting May 2027, even non-hazardous waste exports to non-OECD countries will face new restrictions—recipient countries must explicitly approve specific types of waste and prove they can manage it properly.")
+            # Highlight key quotes or skeptical points (Medium-style)
+            st.markdown("""
+            But as we know from available data, that has not been the reality—plenty of exported waste still ended up in landfills.
 
-            st.write("From November 2026, non-hazardous plastic waste exports to non-OECD countries will be banned for 2.5 years.")
+            On paper, this sounds promising, especially since it forces EU member states to actively track and monitor waste trade to curb illegal exports. But let us stay skeptical.
+            """)
+            # Use st.success or st.warning for regulatory milestones or caveats
+            st.success("**Key Milestones:**\n\n- **May 2026:** All waste trade within the EU must be documented digitally to improve transparency.\n- **November 2026:** Non-hazardous plastic waste exports to non-OECD countries banned for 2.5 years.\n- **May 2027:** Even non-hazardous waste exports to non-OECD countries face new restrictions—recipient countries must explicitly approve and prove proper management.")
 
-            st.write("On paper, this sounds promising, especially since it forces EU member states to actively track and monitor waste trade to curb illegal exports.")
+            st.warning("**Caveat:** The biggest issue with this new regulation is that waste exports are still allowed under certain conditions. Given the history of weak enforcement, does this just leave the door open for waste to keep flowing under a different label?")
 
-            st.write("But let us stay skeptical. While this regulation bans non-hazardous plastic waste exports, hazardous plastic waste exports were already theoretically banned back in 2006. Yet, waste kept moving. The reason? Loopholes and mislabeling. A lot of waste was simply classified incorrectly, which allowed it to bypass regulations and still be exported [1].")
-            
-            st.write("The biggest issue with this new regulation is that waste exports are still allowed under certain conditions. While the documentation requirements are stricter, given the history of weak enforcement, it is fair to ask: Does this just leave the door open for waste to keep flowing under a different label?")
-            
-            st.write("And there is another catch: non-OECD countries can request permission to import EU plastic waste five years after this regulation takes effect. If they meet the EU’s “strict waste management standards,” the European Commission can approve an exemption and lift the ban [7].")
-            
-            st.write("On one hand, this could allow for better-managed waste partnerships, where waste flows align with supply and demand. But on the other, it also leaves a lot of room for corruption and regulatory failure—which, let us be real, has been the main problem all along.")
-            
-            st.write("One major shift, however, is the increased power given to OLAF (European Anti-Fraud Office). Until now, OLAF could only track and assist national authorities—like those in the Netherlands or Germany—in their investigations into illegal waste trade. However, it did not have the authority to launch its own investigations.")
-            
-            st.write("With Regulation (EU) 2024/1157, that changes.")
-            
-            st.write("OLAF now has the power to independently investigate waste shipments not just entering, exiting, or transiting through the EU, but also those occurring entirely within EU member states. These provisions will take effect from May 21, 2026, shifting OLAF from a supporting role to an active enforcement body. [8]")
-            
-            st.write("This is a big deal because current numbers are worrying. Beyond what is officially reported through Eurostat (which this website’s data is based on), there is also a massive illegal waste trade. According to the EU’s own estimates, between 15% and 30% of waste shipments might be illegal. Obviously, these shipments do not follow regulations, making them far more likely to end up in landfills or open dumps [9].")
-            
-            st.write("The problem of high-income countries exporting waste to lower-income ones—where it is often dumped improperly—has been a known issue for decades. That is why the Basel Convention came into force in 1992, banning all hazardous waste exports from OECD to non-OECD countries as of 2019 [10]. The goal was to stop wealthier nations from offloading toxic waste onto lower-income countries, where it creates disproportionate environmental and public health consequences.")
-            
-            st.write("Similarly, the Rotterdam Convention (since 2004) has required countries exporting hazardous waste to obtain prior informed consent from importing countries [11]. But both conventions acknowledge that mislabeling, mishandling, and illegal waste trade remain major loopholes. And since these agreements are mostly declarative—meaning violations only result in diplomatic pressure—they lack real enforcement mechanisms.")
-            
-            st.write("Now, we also have Greenpeace’s 2022 study showing irreversible environmental damage from hazardous plastic waste in Adana, Turkey, where EU waste is also sent [12]. Maybe some of that waste arrived before the 2006 EU restrictions or the 2019 Basel Convention ban. But the study itself pointed out that most of the contamination was likely due to misclassified plastic waste—so whether or not it was exported legally is beside the point.")
-            
-            st.write("It is also important to note that Turkey is an OECD country. That means the Basel Convention primarily applies to it as an exporter rather than an importer. This does not mean there are no regulations for hazardous waste imports—it just means they are not completely banned for OECD countries.")
-            
-            st.write("In May 2021, Turkey briefly banned the import of ethylene polymer waste (a type of plastic waste). However, within days, this ban was reversed and replaced with stricter monitoring and regulations instead [13]. Otherwise, Turkey has largely aligned its waste export regulations with the Basel Convention and has been tightening its import regulations to match EU standards.")
-            
-            st.write("So, looking at all these regulations, the issue is not the lack of rules—it is the lack of enforcement. Maybe if all waste trade was banned, hazardous waste exports would stop altogether, and illegal trade would be easier to detect and prevent.")
-            
-            st.write("Otherwise, what is clear is that stronger enforcement is needed. The consequences we are seeing today are not because we lack regulations; they exist because they are not being implemented or enforced properly.")
-            
-            st.write("Given everything we know about the costs and consequences, the real question is: If we cannot regulate waste trade in a way that does not disproportionately harm lower-income countries, should we allow it at all?")
-            
-            st.write("*TLDR: The EU is banning all waste exports from 2026 and 2027. However, exports for disposal to non-EFTA and non-EU countries have technically been banned since 2006. That means, in theory, any exports to places like Turkey or India should have been strictly for recovery or treatment.*")
+            # More narrative
+            st.write("""
+            One major shift, however, is the increased power given to OLAF (European Anti-Fraud Office). Until now, OLAF could only track and assist national authorities—like those in the Netherlands or Germany—in their investigations into illegal waste trade. However, it did not have the authority to launch its own investigations.
+            """)
+
+            st.markdown("""
+                        With Regulation (EU) 2024/1157, that changes. OLAF now has the power to independently investigate waste shipments not just entering, exiting, or transiting through the EU, but also those occurring entirely within EU member states.
+            """)
+
+            # Use st.error for alarming statistics or negative outcomes
+            st.warning("**Illegal trade is rampant:** According to the EU’s own estimates, between 15% and 30% of waste shipments might be illegal. These shipments are far more likely to end up in landfills or open dumps [9].")
+
+            st.write("""
+            The problem of high-income countries exporting waste to lower-income ones—where it is often dumped improperly—has been a known issue for decades. That is why the Basel Convention came into force in 1992, banning all hazardous waste exports from OECD to non-OECD countries as of 2019 [10]. The goal was to stop wealthier nations from offloading toxic waste onto lower-income countries, where it creates disproportionate environmental and public health consequences.
+            """)
+
+            st.markdown("""
+            The issue is not the lack of rules—it is the lack of enforcement. Maybe if all waste trade was banned, hazardous waste exports would stop altogether, and illegal trade would be easier to detect and prevent.
+            """)
+
+            st.write("""
+            Given everything we know about the costs and consequences, the real question is: If we cannot regulate waste trade in a way that does not disproportionately harm lower-income countries, should we allow it at all?
+            """)
+ 
 
         # Divider for footnotes
         st.markdown("---")
@@ -1289,7 +1299,7 @@ elif horizontal_menu == "Maps":
             map_style="light"  # Set map background to light style
         )
         with st.spinner("Generating export visualization..."):
-            st.pydeck_chart(r)
+            st.pydeck_chart(r, use_container_width=True)
             
         st.write(
             "Data Source:"
