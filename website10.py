@@ -254,16 +254,24 @@ if horizontal_menu == "Introduction":
 
     with st.expander("A Question of Responsibility"):
         st.write(
-            "A question to ask is if the EU is the global leader in climate and environment, why does it not process 100% of its waste? Instead of addressing waste fully within its borders, the EU ships some of it to other countries. It transfers the responsibility for disposal and recycling to regions less well-equipped to handle the burden than the EU is. This raises a critical question: if the EU claims climate leadership, why does it outsource the negative consequences of its consumption?"
+            "A question to ask is if the EU is the global leader in climate and environment, why does it not process 100% of its waste? Instead of addressing waste fully within its borders, the EU ships some of it to other countries. It transfers the responsibility for disposal and recycling to regions less well-equipped to handle the burden than the EU is. This raises a critical question: "
+            "if the EU claims climate leadership, why does it outsource the negative consequences of its consumption?"
         )
+
+        st.markdown("### Waste as a Market Externality")
+
         st.write(
-            "Waste generation is an externality in most markets, as producing goods inevitably results in waste. Some markets generate more waste than others. For example, the real estate market creates substantial waste during the construction of new buildings, much of which we still lack proper methods to dispose of [2]. Another example is food production, which generates significant waste due to plastic packaging. This particular issue has likely received more attention than any other form of waste generation since food packaging is the biggest plastic pollutant [3]. Neither consumers nor producers directly bear the costs of waste disposal. Instead, this burden often falls on municipalities [4]. This classifies it as a negative externality of production."
+            "**Waste generation is an externality in most markets, as producing goods inevitably results in waste.** Some markets generate more waste than others. For example, the real estate market creates substantial waste during the construction of new buildings, much of which we still lack proper methods to dispose of [2]. Another example is food production, which generates significant waste due to plastic packaging. This particular issue has likely received more attention than any other form of waste generation since food packaging is the biggest plastic pollutant [3]. Neither consumers nor producers directly bear the costs of waste disposal. Instead, this burden often falls on municipalities [4]. **This classifies it as a negative externality of production.**"
         )
+
         st.write(
-            "Examining waste creation as a market externality highlights challenges similar to those posed by other externalities. One key issue with externalities is that different markets produce varying amounts of waste with differing impacts on the world [5]. For instance, we can agree that producing hazardous waste is objectively worse than producing non-hazardous waste when considering scale and consequences."
+            "Examining waste creation as a market externality highlights challenges similar to those posed by other externalities. **One key issue with externalities is that different markets produce varying amounts of waste with differing impacts on the world [5].** For instance, we can agree that producing hazardous waste is objectively worse than producing non-hazardous waste when considering scale and consequences."
         )
-        st.write("Waste treatment facilities themselves also create various negative externalities. Landfills produce leachate (a significant environmental concern discussed here) and emit landfill gases like CO2 and CH4 [6]. Other waste management facilities, such as incinerators, also contribute to environmental externalities through air pollution. However, these facilities generate more than just environmental issues. Property values decrease in areas near waste treatment facilities is another key issue discussed here. This happens due to occurances odor, dust, wind-blown litter, or increased occurrences of animals such as seagulls near landfills [6]. Additionally, there are indirect factors that significantly contribute to property devaluation, such as the fear of negative health impacts and concerns about a reduced quality of life for those living nearby (which leads to a decreased demand for such property)."
-                 )
+
+        st.write(
+            "**Waste treatment facilities themselves also create various negative externalities.** Landfills produce leachate (a significant environmental concern discussed here) and emit landfill gases like CO2 and CH4 [6]. Other waste management facilities, such as incinerators, also contribute to environmental externalities through air pollution. However, these facilities generate more than just environmental issues. **Property values decrease in areas near waste treatment facilities is another key issue discussed here.** This happens due to occurrences of odor, dust, wind-blown litter, or increased occurrences of animals such as seagulls near landfills [6]. Additionally, there are indirect factors that significantly contribute to property devaluation, such as the fear of negative health impacts and concerns about a reduced quality of life for those living nearby (which leads to a decreased demand for such property)."
+        )
+
         col1, col2, col3 = st.columns([1, 2, 1])  # Adjust column widths as needed
         with col2:
             st.image(
@@ -271,13 +279,19 @@ if horizontal_menu == "Introduction":
                 caption="A picture demonstrating negative externalities of production, modeling the effect of waste production as a social cost.",
                 width=400
             )
-        st.write("Given the cumulative negative externalities associated with waste and its treatment, waste trade becomes a layered issue. When waste is sold, the paying party (the one selling it) essentially pays for disposal at a market-determined price where demand and supply meet equilibrium (as seen in the picture). However, this price does not account for social costs like leachate management or property value loss. These unaccounted-for costs (the externalities of waste management) are instead borne by surrounding communities and municipalities responsible for environmental cleanup. Ideally, these costs should be borne by the payer (the seller), which is why many countries impose taxes on waste imports to mitigate these externalities. However, some costs remain uncovered, such as property devaluation and reduced quality of life for surrounding communities. That means these costs became burdens of already disadvantaged populations. Furthermore, corruption within the industry exacerbates this issue [7]; sometimes, the funds paid by the payer are not used to address social costs at all."
-                 )
+
         st.write(
-            "From the EU’s side, Extended Producer Responsibility (EPR) policies are set to begin in 2025 to address these issues. EPR shifts the financial and operational responsibility for waste disposal from municipalities to producers and aims to help meet EU recycling targets [8]. This policy represents progress by redistributing responsibility, a step forward in terms of accountability as outlined in the Social Connectivity Model. However, it does not directly regulate how waste is disposed of, but only who is responsible for it within EU borders. Without addressing disposal methods comprehensively, this policy risks inadvertently incentivizing waste exports, which could exacerbate existing inequalities."
+            "Given the cumulative negative externalities associated with waste and its treatment, waste trade becomes a layered issue. When waste is sold, the paying party (the one selling it) essentially pays for disposal at a market-determined price where demand and supply meet equilibrium (as seen in the picture). However, this price does not account for social costs like leachate management or property value loss. **These unaccounted-for costs (the externalities of waste management) are instead borne by surrounding communities and municipalities responsible for environmental cleanup.** Ideally, these costs should be borne by the payer (the seller), which is why many countries impose taxes on waste imports to mitigate these externalities. However, some costs remain uncovered, such as property devaluation and reduced quality of life for surrounding communities. That means these costs became burdens of already disadvantaged populations. Furthermore, corruption within the industry exacerbates this issue [7]; sometimes, the funds paid by the payer are not used to address social costs at all."
         )
+
+        st.markdown("### Extended Producer Responsibility (EPR) and Remaining Challenges")
+
         st.write(
-            "The persistence of waste exports from the EU reflects an interplay of economic power dynamics, a 'Not In My Backyard' (NIMBY) mentality, and ongoing challenges in achieving safe and sustainable waste management. These systemic issues demand solutions that go beyond simple redistribution of responsibility."
+            "**From the EU’s side, Extended Producer Responsibility (EPR) policies are set to begin in 2025 to address these issues.** EPR shifts the financial and operational responsibility for waste disposal from municipalities to producers and aims to help meet EU recycling targets [8]. **This policy represents progress by redistributing responsibility, a step forward in terms of accountability as outlined in the Social Connectivity Model.** However, it does not directly regulate how waste is disposed of, but only who is responsible for it within EU borders. Without addressing disposal methods comprehensively, this policy risks inadvertently incentivizing waste exports, which could exacerbate existing inequalities."
+        )
+
+        st.markdown(
+            "> The persistence of waste exports from the EU reflects an interplay of economic power dynamics, a 'Not In My Backyard' (NIMBY) mentality, and ongoing challenges in achieving safe and sustainable waste management. These systemic issues demand solutions that go beyond simple redistribution of responsibility."
         )
 
     st.subheader("Waste as a Commodity")
@@ -818,16 +832,17 @@ elif horizontal_menu == "Maps":
             # What Can Be Done Section
             st.markdown("### What Can Be Done?")
 
-            st.write("""
-            **The key question:** *What can we do about it?*
+            st.write(
+                "The key question is: What can we do about it? As with any structural injustice, the answer is far from straightforward. For one, regulations already exist and are set to be strengthened. However, as discussed, they often fail to fully address the problem, especially when waste trade has largely shifted into legal gray zones or outright illegal practices. Stronger enforcement is necessary, but just as important is a cultural shift in how waste trade is perceived."
+            )
 
-            - **Regulations exist and are being strengthened**, but enforcement often falls short, especially as waste trade moves into legal gray zones or outright illegality.
-            - **Stronger enforcement** is necessary, but so is a cultural shift in how waste trade is perceived.
-            - The Social Connection Model calls for a change in mindset: everyone must recognize their responsibility, not just push the problem elsewhere.
-            - **Corporate accountability** is crucial—producers should be responsible for correct labeling and for the end-of-life disposal of their products.
-            - The ultimate goal is to **establish incentives** that prevent all actors from defaulting to the easiest, most harmful option.
-            - **Individuals** play a vital role by advocating for better regulations and supporting changes to incentive structures.
-            """)
+            st.markdown(
+                "> **This is precisely what the Social Connection Model argues:** the entire system bears responsibility because everyone treats it as if it’s not their problem. The goal is to change this mindset—not to simply push for waste disposal elsewhere but to advocate for disposal methods that do no harm."
+            )
+
+            st.write(
+                "A key step is improving **corporate accountability**, ensuring that recyclables are correctly labeled and that producers take financial responsibility for their products’ end-of-life disposal. The broader aim is to establish a system of incentives that prevents every actor, at every stage, from defaulting to the easiest, most harmful option. **Individuals** play a crucial role in pushing for these changes—both in regulations and in the incentive structures that shape decision-making."
+            )
 
             # Final Highlighted Quote
             st.markdown("""
