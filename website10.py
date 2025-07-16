@@ -198,6 +198,12 @@ div[data-baseweb="select"] > div {{
     .st-emotion-cache-1kyxreq {{
         border-radius: 0px !important;
     }}
+
+/* Your existing CSS above... */
+
+body, .stApp, .stMarkdown, #root, div {{
+    color: {TEXT_COLOR} !important;
+}}
 </style>
 """, unsafe_allow_html=True)
 
@@ -506,7 +512,7 @@ elif horizontal_menu == "Maps":
             tooltip={
                 "html": tooltip_html,
                 "style": {
-                    "backgroundColor": "steelblue",
+                    "backgroundColor": "aliceblue",
                     "color": "white",
                     "maxWidth": "300px",
                     "padding": "10px"
@@ -704,7 +710,7 @@ elif horizontal_menu == "Maps":
             tooltip={
             "html": "<b>{SOV_A3}</b>: {formatted_OBS_VALUE} tonnes/year",
             "style": {
-                "backgroundColor": "steelblue",
+                "backgroundColor": "aliceblue",
                 "color": "white"
             }},
             map_style="light"  # Set map background to light style
@@ -1021,7 +1027,7 @@ elif horizontal_menu == "Maps":
             tooltip={
             "html": "<b>{SOV_A3}</b>: {formatted_OBS_VALUE} tonnes/year",
             "style": {
-                "backgroundColor": "steelblue",
+                "backgroundColor": "aliceblue",
                 "color": "white"
             }},
             map_style="light"  # Set map background to light style
@@ -1334,7 +1340,7 @@ elif horizontal_menu == "Maps":
             tooltip={
             "html": "<b>{SOV_A3}</b>: {formatted_OBS_VALUE} tonnes/year",
             "style": {
-                "backgroundColor": "steelblue",
+                "backgroundColor": "aliceblue",
                 "color": "white"
             }},
             map_style="light"  # Set map background to light style
