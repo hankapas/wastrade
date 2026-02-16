@@ -394,7 +394,8 @@ elif horizontal_menu == "Maps":
         page = st.radio(
             "Select waste category:",
             ["General", "Plastic", "Metal", "Hazardous Waste"],
-            index=0
+            index=0,
+            key="map_page"
         )
 
     # Load shapefile for world map
@@ -1719,3 +1720,4 @@ elif horizontal_menu == "More Resources":
         st.write(f"- {entry['annotation']}\n")
 
         
+
