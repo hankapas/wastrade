@@ -204,6 +204,18 @@ div[data-baseweb="select"] > div {{
 body, .stApp, .stMarkdown, #root, div {{
     color: {TEXT_COLOR} !important;
 }}
+
+.sidebar .streamlit-expanderHeader::before,
+.sidebar .streamlit-expanderHeader svg,
+.sidebar [data-testid="stExpander"] > details > summary::before {{
+    font-size: 0px !important;
+}}
+.sidebar .streamlit-expanderHeader {{
+    min-height: 0px !important;
+    padding: 4px 8px !important;
+}}
+
+
 </style>
 """, unsafe_allow_html=True)
 
@@ -390,13 +402,16 @@ elif horizontal_menu == "Maps":
     # Sidebar for Maps Navigation
     with st.spinner("Loading map view..."):
          time.sleep(0.5)  # Short delay for visual transition
-    with st.sidebar.expander("🗺️ **Map Navigation**", expanded=True):
-        page = st.radio(
-            "Select waste category:",
-            ["General", "Plastic", "Metal", "Hazardous Waste"],
-            index=0,
-            key="map_page"
-        )
+    st.sidebar.title("Map Navigation")
+    
+    page = st.sidebar.selectbox(
+        "Select waste category",
+        ["General", "Plastic", "Metal", "Hazardous Waste"],
+        index=0,
+        key="waste_category"
+    )
+
+
 
     # Load shapefile for world map
     shapefile_path = r'110m_cultural/ne_110m_admin_0_countries.shp' #File from Natural Earth » 1:110m Cultural Vectors—Free vector and raster map data at 1:10m, 1:50m, and 1:110m scales. (n.d.).
