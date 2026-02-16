@@ -394,8 +394,7 @@ elif horizontal_menu == "Maps":
         page = st.radio(
             "Select waste category:",
             ["General", "Plastic", "Metal", "Hazardous Waste"],
-            index=0,
-            label_visibility="collapsed"
+            index=0
         )
 
     # Load shapefile for world map
@@ -1718,4 +1717,5 @@ elif horizontal_menu == "More Resources":
     for i, entry in enumerate(bibliography, start=1):
         st.markdown(f"**{i}. {entry['citation']}**")
         st.write(f"- {entry['annotation']}\n")
+
         
